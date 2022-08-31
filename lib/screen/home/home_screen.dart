@@ -1,5 +1,4 @@
 import 'package:find_gadget/unit/theme.dart';
-import 'package:find_gadget/widgets/customer_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +33,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     tabController = TabController(length: 4, vsync: this);
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: [SystemUiOverlay.top],
+    );
     super.initState();
   }
 
@@ -181,31 +183,30 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         controller: tabController,
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height,
-                            // width: MediaQuery.of(context).size.width,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: 60.h,
-                                ),
-                                Expanded(
-                                  child: ListView.builder(
-                                    itemCount: name.length,
-                                    scrollDirection: Axis.horizontal,
-                                    itemBuilder: (context, index) {
-                                      return Container(
-                                        margin: EdgeInsets.only(
-                                          left: 20.w,
-                                          right: 20.w,
-                                        ),
-                                        height: 318.h,
-                                        width: 220.w,
-                                        child: Stack(
-                                          children: [
-                                            Align(
-                                              alignment: Alignment.topCenter,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 60.h,
+                              ),
+                              Expanded(
+                                child: ListView.builder(
+                                  itemCount: name.length,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Container(
+                                      margin: EdgeInsets.only(
+                                        left: 20.w,
+                                        right: 20.w,
+                                      ),
+                                      height: 318.h,
+                                      width: 220.w,
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.topCenter,
+                                            child: InkWell(
+                                              onTap: () {},
                                               child: Container(
                                                 margin:
                                                     EdgeInsets.only(top: 50.h),
@@ -229,108 +230,108 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                 ),
                                               ),
                                             ),
-                                            Align(
-                                              alignment: Alignment.topCenter,
-                                              child: Column(
-                                                children: [
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                      120.r,
-                                                    ),
-                                                    child: Container(
-                                                      height: 150.h,
-                                                      width: 150.h,
-                                                      decoration:
-                                                          const BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color: Colors.blue,
-                                                      ),
-                                                      child: Image.asset(
-                                                        image[index],
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 30.h,
-                                                  ),
-                                                  Text(
-                                                    name[index],
-                                                    textAlign: TextAlign.center,
-                                                    style: Gadget.releway_sb
-                                                        .copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 22.sp,
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 9.h,
-                                                  ),
-                                                  Text(
-                                                    detail[index],
-                                                    textAlign: TextAlign.center,
-                                                    style: Gadget.releway_sb
-                                                        .copyWith(
-                                                      color: Gadget.khakhi,
-                                                      fontSize: 16.sp,
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 13.h,
-                                                  ),
-                                                  Text(
-                                                    "\$ ${price[index]}",
-                                                    textAlign: TextAlign.center,
-                                                    style: Gadget.releway_b
-                                                        .copyWith(
-                                                      color: Gadget.primary,
-                                                      fontSize: 17.sp,
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 30.h,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 28.w),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {},
-                                        child: Text(
-                                          "see more",
-                                          style: Gadget.releway_b.copyWith(
-                                            color: Gadget.primary,
-                                            fontSize: 15.sp,
                                           ),
+                                          Align(
+                                            alignment: Alignment.topCenter,
+                                            child: Column(
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    120.r,
+                                                  ),
+                                                  child: Container(
+                                                    height: 150.h,
+                                                    width: 150.h,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.blue,
+                                                    ),
+                                                    child: Image.asset(
+                                                      image[index],
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 30.h,
+                                                ),
+                                                Text(
+                                                  name[index],
+                                                  textAlign: TextAlign.center,
+                                                  style: Gadget.releway_sb
+                                                      .copyWith(
+                                                    color: Colors.black,
+                                                    fontSize: 22.sp,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 9.h,
+                                                ),
+                                                Text(
+                                                  detail[index],
+                                                  textAlign: TextAlign.center,
+                                                  style: Gadget.releway_sb
+                                                      .copyWith(
+                                                    color: Gadget.khakhi,
+                                                    fontSize: 16.sp,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 13.h,
+                                                ),
+                                                Text(
+                                                  "\$ ${price[index]}",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      Gadget.releway_b.copyWith(
+                                                    color: Gadget.primary,
+                                                    fontSize: 17.sp,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 30.h,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 28.w),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {},
+                                      child: Text(
+                                        "see more",
+                                        style: Gadget.releway_b.copyWith(
+                                          color: Gadget.primary,
+                                          fontSize: 15.sp,
                                         ),
                                       ),
-                                      SizedBox(
-                                        width: 4.w,
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_outlined,
-                                        color: Gadget.primary,
-                                        size: 16.h,
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                    SizedBox(
+                                      width: 4.w,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_outlined,
+                                      color: Gadget.primary,
+                                      size: 16.h,
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(
-                                  height: 20.h,
-                                ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                            ],
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height,
