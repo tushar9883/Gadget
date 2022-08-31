@@ -44,7 +44,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 47.h,
+          height: 50.h,
         ),
         Container(
           margin: EdgeInsets.only(left: 54.w),

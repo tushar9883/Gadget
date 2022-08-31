@@ -16,4 +16,7 @@ class Gadget {
   static const TextStyle releway_exb = TextStyle(
     fontFamily: "Raleway-Ex-B",
   );
+  static const TextStyle releway_r = TextStyle(
+    fontFamily: "Raleway-R",
+  );
 }

@@ -38,3 +38,6 @@ flutter:
     - family: Raleway-S-B
       fonts:
         - asset: assets/font/Raleway-SemiBold.ttf
+    - family: Raleway-R
+      fonts:
+        - asset: assets/font/Raleway-Regular.ttf
