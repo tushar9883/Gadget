@@ -316,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: 8.w,
+                                        width: 4.w,
                                       ),
                                       Icon(
                                         Icons.arrow_forward_outlined,
@@ -329,93 +329,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                 SizedBox(
                                   height: 20.h,
                                 ),
-                                // SizedBox(
-                                //   height: 318.h,
-                                //   width: 220.w,
-                                //   child: Stack(
-                                //     children: [
-                                //       Align(
-                                //         alignment: Alignment.bottomCenter,
-                                //         child: Container(
-                                //           height: 270.h,
-                                //           decoration: BoxDecoration(
-                                //             borderRadius:
-                                //                 BorderRadius.circular(20.r),
-                                //             boxShadow: [
-                                //               BoxShadow(
-                                //                 color: const Color(0x19393939),
-                                //                 blurRadius: 60.r,
-                                //                 offset: const Offset(0, 30),
-                                //               ),
-                                //             ],
-                                //             color: Colors.white,
-                                //           ),
-                                //         ),
-                                //       ),
-                                //       Align(
-                                //         alignment: Alignment.topCenter,
-                                //         child: ClipRRect(
-                                //           borderRadius:
-                                //               BorderRadius.circular(120.r),
-                                //           child: Container(
-                                //             height: 150.h,
-                                //             width: 150.h,
-                                //             decoration: const BoxDecoration(
-                                //               shape: BoxShape.circle,
-                                //               color: Colors.blue,
-                                //             ),
-                                //             child: Image.asset(
-                                //               'assets/images/data.jpg',
-                                //               fit: BoxFit.cover,
-                                //             ),
-                                //           ),
-                                //         ),
-                                //       ),
-                                //       Align(
-                                //         alignment: Alignment.bottomCenter,
-                                //         child: Column(
-                                //           mainAxisAlignment:
-                                //               MainAxisAlignment.end,
-                                //           children: [
-                                //             Text(
-                                //               "Apple Watch",
-                                //               textAlign: TextAlign.center,
-                                //               style: Gadget.releway_sb.copyWith(
-                                //                 color: Colors.black,
-                                //                 fontSize: 22.sp,
-                                //               ),
-                                //             ),
-                                //             SizedBox(
-                                //               height: 9.h,
-                                //             ),
-                                //             Text(
-                                //               "Series 6 . Red",
-                                //               textAlign: TextAlign.center,
-                                //               style: Gadget.releway_sb.copyWith(
-                                //                 color: Gadget.khakhi,
-                                //                 fontSize: 16.sp,
-                                //               ),
-                                //             ),
-                                //             SizedBox(
-                                //               height: 13.h,
-                                //             ),
-                                //             Text(
-                                //               "\$ 359",
-                                //               textAlign: TextAlign.center,
-                                //               style: Gadget.releway_b.copyWith(
-                                //                 color: Gadget.primary,
-                                //                 fontSize: 17.sp,
-                                //               ),
-                                //             ),
-                                //             SizedBox(
-                                //               height: 30.h,
-                                //             ),
-                                //           ],
-                                //         ),
-                                //       ),
-                                //     ],
-                                //   ),
-                                // ),
                               ],
                             ),
                           ),
