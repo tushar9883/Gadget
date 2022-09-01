@@ -1,16 +1,18 @@
+import 'package:find_gadget/screen/search/search.dart';
 import 'package:find_gadget/unit/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FirstPage extends StatefulWidget {
-  const FirstPage({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<FirstPage> createState() => _FirstPageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
   late TabController tabController;
+
   @override
   void initState() {
     tabController = TabController(length: 4, vsync: this);
@@ -48,48 +50,63 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
         ),
         Container(
           margin: EdgeInsets.only(left: 54.w),
-          child: Row(
-            children: [
-              Image.asset(
-                "assets/images/menu.png",
-                width: 22.w,
-                height: 15.h,
-              ),
-              SizedBox(
-                width: 27.w,
-              ),
-              Container(
-                width: 267.w,
-                height: 60.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.r),
-                  border: Border.all(
-                    color: const Color(0xffc8c8c8),
-                    width: 2.w,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Search(),
+                ),
+              );
+            },
+            child: Row(
+              children: [
+                Image.asset(
+                  "assets/images/menu.png",
+                  width: 22.w,
+                  height: 15.h,
+                ),
+                SizedBox(
+                  width: 27.w,
+                ),
+                Container(
+                  width: 267.w,
+                  height: 60.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.r),
+                    border: Border.all(
+                      color: const Color(0xffc8c8c8),
+                      width: 2.w,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: 11.h,
+                      bottom: 11.h,
+                      left: 11.w,
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.search,
+                          color: Color(0xff200E32),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Text(
+                          "Search",
+                          style: Gadget.releway_sb.copyWith(
+                            color: const Color(0xff858585),
+                            fontSize: 17.sp,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                child: TextField(
-                  style: Gadget.releway_sb.copyWith(
-                    color: Gadget.khakhi,
-                    fontSize: 17.sp,
-                  ),
-                  controller: search,
-                  cursorColor: Gadget.primary,
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: Color(0xff200E32),
-                    ),
-                    hintText: "Search",
-                    hintStyle: Gadget.releway_sb.copyWith(
-                      color: Gadget.khakhi,
-                      fontSize: 17.sp,
-                    ),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         SizedBox(

@@ -32,6 +32,9 @@ class _NotFoundState extends State<NotFound> {
           height: widget.height,
           width: widget.width,
         ),
+        SizedBox(
+          height: 18.h,
+        ),
         Text(
           widget.title,
           textAlign: TextAlign.center,

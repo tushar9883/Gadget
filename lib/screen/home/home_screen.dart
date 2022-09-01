@@ -1,7 +1,7 @@
-import 'package:find_gadget/screen/home/pages/first_page.dart';
-import 'package:find_gadget/screen/home/pages/four_page.dart';
-import 'package:find_gadget/screen/home/pages/three_page.dart';
-import 'package:find_gadget/screen/home/pages/two_page.dart';
+import 'package:find_gadget/screen/home/pages/home.dart';
+import 'package:find_gadget/screen/home/pages/basket.dart';
+import 'package:find_gadget/screen/home/pages/profile.dart';
+import 'package:find_gadget/screen/home/pages/favorite.dart';
 import 'package:find_gadget/unit/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,10 +17,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
 
   final pages = [
-    const FirstPage(),
-    const TwoPage(),
-    const ThreePage(),
-    const FourPage(),
+    const Home(),
+    const Favorite(),
+    const Profile(),
+    const Basket(),
   ];
 
   @override

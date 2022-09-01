@@ -4,14 +4,14 @@ import 'package:find_gadget/widgets/custome_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TwoPage extends StatefulWidget {
-  const TwoPage({Key? key}) : super(key: key);
+class Favorite extends StatefulWidget {
+  const Favorite({Key? key}) : super(key: key);
 
   @override
-  State<TwoPage> createState() => _TwoPageState();
+  State<Favorite> createState() => _FavoriteState();
 }
 
-class _TwoPageState extends State<TwoPage> {
+class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +60,8 @@ class _TwoPageState extends State<TwoPage> {
               SizedBox(
                 height: 30.h,
               ),
-              Padding(
+              Container(
+                height: 50.h,
                 padding: EdgeInsets.symmetric(horizontal: 40.w),
                 child: CustomeButton(
                   containerColor: const Color(0xff58C0EA),
