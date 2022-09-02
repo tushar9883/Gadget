@@ -35,21 +35,31 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                 ),
-                Image.asset(
-                  "assets/images/splash.png",
-                ),
-                CustomeButton(
-                  text: "Get started",
-                  click: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
+                Stack(
+                  children: [
+                    Image.asset(
+                      "assets/images/splash.png",
+                    ),
+                    Positioned(
+                      bottom: 5,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: CustomeButton(
+                          text: "Get started",
+                          click: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LoginScreen(),
+                              ),
+                            );
+                          },
+                          containerColor: Gadget.white,
+                          textColor: Gadget.primary,
+                        ),
                       ),
-                    );
-                  },
-                  containerColor: Gadget.white,
-                  textColor: Gadget.primary,
+                    ),
+                  ],
                 ),
               ],
             ),

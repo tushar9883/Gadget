@@ -40,7 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           InkWell(
             onTap: () {
-              print(pageIndex);
               setState(() {
                 pageIndex = 0;
               });
@@ -79,7 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           InkWell(
             onTap: () {
-              print(pageIndex);
               setState(() {
                 pageIndex = 1;
               });
@@ -118,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           InkWell(
             onTap: () {
-              print(pageIndex);
               setState(() {
                 pageIndex = 2;
               });
@@ -157,7 +154,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           InkWell(
             onTap: () {
-              print(pageIndex);
               setState(() {
                 pageIndex = 3;
               });

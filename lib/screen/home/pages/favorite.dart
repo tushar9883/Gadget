@@ -1,3 +1,4 @@
+import 'package:find_gadget/screen/home/home_screen.dart';
 import 'package:find_gadget/widgets/item.dart';
 import 'package:find_gadget/unit/theme.dart';
 import 'package:find_gadget/widgets/custome_button.dart';
@@ -28,10 +29,15 @@ class _FavoriteState extends State<Favorite> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset(
-                      'assets/images/back.png',
-                      height: 24.w,
-                      width: 24.w,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Image.asset(
+                        'assets/images/back.png',
+                        height: 24.w,
+                        width: 24.w,
+                      ),
                     ),
                     Text(
                       "Favorites",
@@ -66,7 +72,14 @@ class _FavoriteState extends State<Favorite> {
                 child: CustomeButton(
                   containerColor: const Color(0xff58C0EA),
                   textColor: Gadget.white,
-                  click: () {},
+                  click: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen(),
+                      ),
+                    );
+                  },
                   text: "Start ordering",
                 ),
               ),

@@ -38,10 +38,15 @@ class _BasketState extends State<Basket> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    'assets/images/back.png',
-                    height: 24.w,
-                    width: 24.w,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset(
+                      'assets/images/back.png',
+                      height: 24.w,
+                      width: 24.w,
+                    ),
                   ),
                   Text(
                     "Basket",

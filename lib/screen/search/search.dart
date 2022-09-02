@@ -1,3 +1,4 @@
+import 'package:find_gadget/screen/add_basket/add_basket.dart';
 import 'package:find_gadget/unit/theme.dart';
 import 'package:find_gadget/widgets/item.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   final search = TextEditingController();
   List image = [
-    "assets/images/data.jpg",
+    "assets/images/ipad.png",
     "assets/images/magic.jpg",
   ];
   List name = [
@@ -42,10 +43,15 @@ class _SearchState extends State<Search> {
                   padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: Row(
                     children: [
-                      Image.asset(
-                        'assets/images/back.png',
-                        height: 24.h,
-                        width: 24.h,
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset(
+                          'assets/images/back.png',
+                          height: 24.h,
+                          width: 24.h,
+                        ),
                       ),
                       SizedBox(
                         width: 18.w,
@@ -113,22 +119,38 @@ class _SearchState extends State<Search> {
                               ),
                             ),
                             Expanded(
-                              child: ListView.builder(
-                                itemCount: name.length,
-                                itemBuilder: (context, index) {
+                              child: GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                ),
+                                itemCount: image.length,
+                                itemBuilder: (BuildContext context, int index) {
                                   return Container(
                                     margin: EdgeInsets.only(
                                       left: 20.w,
                                       right: 20.w,
+                                      top: 15.h,
                                     ),
                                     height: 318.h,
                                     width: 220.w,
-                                    child: Stack(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.topCenter,
-                                          child: InkWell(
-                                            onTap: () {},
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => AddBasket(
+                                              name: name[index],
+                                              price: price[index],
+                                              image: image[index],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.topCenter,
                                             child: Container(
                                               margin:
                                                   EdgeInsets.only(top: 50.h),
@@ -151,19 +173,13 @@ class _SearchState extends State<Search> {
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Align(
-                                          alignment: Alignment.topCenter,
-                                          child: Column(
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                  120.r,
-                                                ),
-                                                child: Container(
-                                                  height: 150.h,
-                                                  width: 150.h,
+                                          Align(
+                                            alignment: Alignment.topCenter,
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  height: 131.h,
+                                                  width: 114.w,
                                                   decoration:
                                                       const BoxDecoration(
                                                     shape: BoxShape.circle,
@@ -174,43 +190,154 @@ class _SearchState extends State<Search> {
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 30.h,
-                                              ),
-                                              Text(
-                                                name[index],
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    Gadget.releway_sb.copyWith(
-                                                  color: Colors.black,
-                                                  fontSize: 22.sp,
+                                                SizedBox(
+                                                  height: 10.h,
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 13.h,
-                                              ),
-                                              Text(
-                                                "\$ ${price[index]}",
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    Gadget.releway_b.copyWith(
-                                                  color: Gadget.primary,
-                                                  fontSize: 17.sp,
+                                                Text(
+                                                  name[index],
+                                                  textAlign: TextAlign.center,
+                                                  style: Gadget.releway_sb
+                                                      .copyWith(
+                                                    color: Colors.black,
+                                                    fontSize: 22.sp,
+                                                  ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 30.h,
-                                              ),
-                                            ],
+                                                SizedBox(
+                                                  height: 5.h,
+                                                ),
+                                                Text(
+                                                  "\$ ${price[index]}",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      Gadget.releway_b.copyWith(
+                                                    color: Gadget.primary,
+                                                    fontSize: 17.sp,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 10.h,
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },
                               ),
                             )
+                            // Expanded(
+                            //   child: ListView.builder(
+                            //     itemCount: name.length,
+                            //     itemBuilder: (context, index) {
+                            //       return Container(
+                            //         margin: EdgeInsets.only(
+                            //           left: 20.w,
+                            //           right: 20.w,
+                            //           top: 12.h,
+                            //         ),
+                            //         height: 318.h,
+                            //         width: 220.w,
+                            //         child: InkWell(
+                            //           onTap: () {
+                            //             Navigator.push(
+                            //               context,
+                            //               MaterialPageRoute(
+                            //                 builder: (context) => AddBasket(
+                            //                   name: name[index],
+                            //                   price: price[index],
+                            //                   image: image[index],
+                            //                 ),
+                            //               ),
+                            //             );
+                            //           },
+                            //           child: Stack(
+                            //             children: [
+                            //               Align(
+                            //                 alignment: Alignment.topCenter,
+                            //                 child: Container(
+                            //                   margin:
+                            //                       EdgeInsets.only(top: 50.h),
+                            //                   height: 270.h,
+                            //                   decoration: BoxDecoration(
+                            //                     borderRadius:
+                            //                         BorderRadius.circular(
+                            //                       20.r,
+                            //                     ),
+                            //                     boxShadow: [
+                            //                       BoxShadow(
+                            //                         color: const Color(
+                            //                           0x19393939,
+                            //                         ),
+                            //                         blurRadius: 60.r,
+                            //                         offset: const Offset(0, 30),
+                            //                       ),
+                            //                     ],
+                            //                     color: Colors.white,
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //               Align(
+                            //                 alignment: Alignment.topCenter,
+                            //                 child: Column(
+                            //                   children: [
+                            //                     ClipRRect(
+                            //                       borderRadius:
+                            //                           BorderRadius.circular(
+                            //                         120.r,
+                            //                       ),
+                            //                       child: Container(
+                            //                         height: 150.h,
+                            //                         width: 150.h,
+                            //                         decoration:
+                            //                             const BoxDecoration(
+                            //                           shape: BoxShape.circle,
+                            //                           color: Colors.blue,
+                            //                         ),
+                            //                         child: Image.asset(
+                            //                           image[index],
+                            //                           fit: BoxFit.cover,
+                            //                         ),
+                            //                       ),
+                            //                     ),
+                            //                     SizedBox(
+                            //                       height: 30.h,
+                            //                     ),
+                            //                     Text(
+                            //                       name[index],
+                            //                       textAlign: TextAlign.center,
+                            //                       style: Gadget.releway_sb
+                            //                           .copyWith(
+                            //                         color: Colors.black,
+                            //                         fontSize: 22.sp,
+                            //                       ),
+                            //                     ),
+                            //                     SizedBox(
+                            //                       height: 13.h,
+                            //                     ),
+                            //                     Text(
+                            //                       "\$ ${price[index]}",
+                            //                       textAlign: TextAlign.center,
+                            //                       style:
+                            //                           Gadget.releway_b.copyWith(
+                            //                         color: Gadget.primary,
+                            //                         fontSize: 17.sp,
+                            //                       ),
+                            //                     ),
+                            //                     SizedBox(
+                            //                       height: 30.h,
+                            //                     ),
+                            //                   ],
+                            //                 ),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //       );
+                            //     },
+                            //   ),
+                            // )
                           ],
                         ),
                       )

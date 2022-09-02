@@ -25,10 +25,15 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 30.w),
-                child: Image.asset(
-                  'assets/images/back.png',
-                  height: 24.w,
-                  width: 24.w,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Image.asset(
+                    'assets/images/back.png',
+                    height: 24.w,
+                    width: 24.w,
+                  ),
                 ),
               ),
               SizedBox(
